@@ -1,4 +1,3 @@
-
 //whiskers75's FightCode Robot
 //Licenced under the GPLv2 or higher
 //Forks of this may not battle this robot.
@@ -6,8 +5,6 @@
 
 var lastSighting = 60;
 var Robot = function(robot) {
-  robot.log("whiskers75's robot initialized");
-  robot.log("Cur health: " + ev.life);
   robot.ahead(12);
   robot.rotateCannon(2);
 };
@@ -19,7 +16,6 @@ Robot.prototype.onHitByBullet = function(ev) {
     robot.rotateCannon(90 - ev.bulletBearing);
     robot.ahead(100);
     robot.rotateCannon(180);
-    robot.log("Hit! Health: " + ev.life);
 };
 Robot.prototype.onIdle = function(ev) {
     var robot = ev.robot;
@@ -30,7 +26,6 @@ Robot.prototype.onIdle = function(ev) {
 Robot.prototype.onScannedRobot = function(ev) {
     var robot = ev.robot;
     robot.fire();
-    robot.log("Locked on to Robot ID "+ ev.scannedRobot.id);
     robot.rotateCannon(lastSighting / 6 - lastSighting /6 * 3.1);
     robot.rotateCannon(lastSighting / 6 - lastSighting /6 / 3.1);
     robot.rotateCannon(lastSighting / 6 - lastSighting /6 * 3.1);
